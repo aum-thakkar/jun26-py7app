@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: py7app
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: py7app
+  type: ClusterIP

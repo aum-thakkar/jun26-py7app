@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: py7app
+  labels:
+    app: py7app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: py7app
+  template:
+    metadata:
+      labels:
+        app: py7app
+    spec:
+      containers:
+      - name: py7app
+        image: aumthakkar/py7app:v1
+        ports:
+        - containerPort: 5000
+
