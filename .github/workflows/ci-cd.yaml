@@ -66,8 +66,13 @@ jobs:
       - name: ArgoCD login and App sync
         run: |
           argocd login argocd-server.argocd \
+<<<<<<< HEAD
           --username ${{ ARGOCD_USERNAME }} \
           --password ${{ ARGOCD_PASSWORD }} \
+=======
+          --username ${{ secrets.ARGOCD_USERNAME }} \
+          --password ${{ secrets.ARGOCD_PASSWORD }} \
+>>>>>>> 6d7564f (added workflow)
           --insecure \
           --grpc-web
 
