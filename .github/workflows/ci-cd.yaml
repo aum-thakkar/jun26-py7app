@@ -36,9 +36,7 @@ jobs:
 
   cd:
     needs: ci
-    runs-on:
-      group: Default
-      labels: orbstack-runner
+    runs-on: orbstack-runner
     steps:
       - name: Checkout GitHub repo
         uses: actions/checkout@v7
