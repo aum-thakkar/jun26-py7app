@@ -44,7 +44,7 @@ jobs:
       - name: Using yq utility modify the tags from the Helm values file
         run: |          
           # Download and set up yq
-          VERSION=v4.2.0
+          VERSION=v4.44.1
           PLATFORM=linux_arm64
           
           curl -L "https://github.com/mikefarah/yq/releases/download/${VERSION}/yq_${PLATFORM}" -o ./yq 
