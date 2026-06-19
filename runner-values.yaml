@@ -1,0 +1,6 @@
+githubConfigUrl: "https://github.com/aum-thakkar"
+githubConfigSecret: "orbstack-runner-secret"
+
+# This native flag configures the runner pod and sidecar perfectly for you!
+containerMode:
+  type: dind
