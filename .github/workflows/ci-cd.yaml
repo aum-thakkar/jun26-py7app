@@ -76,7 +76,24 @@ jobs:
 
           # Create and sync the app
           REPO="https://github.com/aumthakkar/jun26-py7app.git"
+          
+          # If not there add the Repo to ArgoCD
+          argocd app list | grep -q ${REPO} || argocd repo add ${REPO}
 
+          # Create app if not there already
+          if argocd app get > /dev/null 2>&1; then
+            echo "Deleting old app - py7app for a new fresh install..."
+            argocd app delete py7app -y --cascase --wait
+
+            # Wait while the app gets deleted
+            while argocd app get py7app; do
+              echo "Waiting for App py7app to be deleted..."
+              sleep 2
+            done
+            echo "App: py7app deleted."
+          fi
+
+          # Create the app
           argocd app create py7app \
           --dest-server https://kubernetes.default.svc \
           --dest-namespace dev \
