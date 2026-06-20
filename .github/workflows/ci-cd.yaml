@@ -83,7 +83,7 @@ jobs:
           # Create app if not there already
           if argocd app get py7app > /dev/null 2>&1; then
             echo "Deleting old app - py7app for a new fresh install..."
-            argocd app delete py7app -y --cascase --wait
+            argocd app delete py7app -y --cascade --wait
 
             # Wait while the app gets deleted
             while argocd app get py7app; do
