@@ -81,7 +81,7 @@ jobs:
           argocd app list | grep -q ${REPO} || argocd repo add ${REPO}
 
           # Create app if not there already
-          if argocd app get > /dev/null 2>&1; then
+          if argocd app get py7app > /dev/null 2>&1; then
             echo "Deleting old app - py7app for a new fresh install..."
             argocd app delete py7app -y --cascase --wait
 
